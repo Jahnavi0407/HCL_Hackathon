@@ -57,7 +57,7 @@ Healthcare providers can monitor patient compliance and progress. The system emp
 CREATE TABLE users (
 user_id INT PRIMARY KEY AUTO_INCREMENT, email VARCHAR(255) UNIQUE NOT NULL, password_hash VARCHAR(255) NOT NULL, role ENUM('patient, 'provider') NOT NULL, first_name VARCHAR(100) NOT NULL, last_name VARCHAR(100) NOT NULL, phone VARCHAR (20), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, last_login TIMESTAMP NULL, is_active BOOLEAN DEFAULT TRUE, consent given BOOLEAN DEFAULT FALSE, INDEX idx_email (email), INDEX idx role (role)
 );
-#拼## 5.1.2 Patient Profiles Table
+#### 5.1.2 Patient Profiles Table
 ***sql
 CREATE TABLE patient_ profiles ( profile_ id INT PRIMARY KEY AUTO_INCREMENT, user_id INT UNIQUE NOT NULL, date_of_birth DATE, blood _group VARCHAR(10), allergies TEXT, current_medications TEXT, emergency_contact_name VARCHAR(100), emergency_contact_phone VARCHAR(20), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
